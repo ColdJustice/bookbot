@@ -16,10 +16,9 @@ def count_letters(text):
     
     lowered_text = text.lower()
     for c in lowered_text:
-        if (c.isalpha()):
-            if (c not in letters):
-                letters[c] = 0
-            letters[c] += 1
+        if (c not in letters):
+            letters[c] = 0
+        letters[c] += 1
 
     return letters
 
@@ -30,7 +29,8 @@ def print_report(file_name, words, letters):
     print(f"{words} words found in the document")
     print()
     for letter in sorted_letters:
-        print(f"The '{letter["letter"]}' character was found {letter["value"]} times")
+        if letter["letter"].isalpha():
+            print(f"The '{letter["letter"]}' character was found {letter["value"]} times")
 
     print ("--- End report ---")
 
